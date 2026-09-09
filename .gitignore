@@ -1,9 +1,31 @@
+# Cache y compilados de Python
 __pycache__/
-*.pyc
-.venv/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
 venv/
+.venv/
+env/
+ENV/
+
+# Bases de datos vectoriales y almacenamiento local (Chroma, SQLite, SQL)
+/data/chroma
+chroma_langchain/
+*.db
+*.sqlite
+*.sqlite3
+
+# Variables de entorno y credenciales (AWS, Gemini, etc.)
 .env
 *.env
-.DS_Store
+
+# Archivos de configuración de editores y SO
 .vscode/
 .idea/
+.DS_Store
+Thumbs.db
+
+# Logs y archivos temporales
+*.log
+.streamlit/secrets.toml

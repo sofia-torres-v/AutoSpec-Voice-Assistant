@@ -24,12 +24,12 @@ El dominio automotriz se eligió por ser un caso de uso realista y frecuente par
 
 ## Mapa de Progreso
 
-| Fase                                                                            | Estado                     | Detalle                                                                                                           |
-| ------------------------------------------------------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **Fase 1 — Retrieval Directo (Sin LLM)**                                        | ✅ Completada              | Búsqueda vectorial pura para validar los datos y aislar fallos. Costo $0 en generación.                           |
-| **Fase 2 — RAG Gestionado (Bedrock Managed KB)**                                | ⏸️ Restricción de Recursos | Restricción de permisos IAM en el entorno de prueba disponible. Ver detalle.                                      |
-| **Fase 3 — RAG Code-First (Vector store en código + proveedor intercambiable)** | ✅ Completada              | ChromaDB + Titan Embeddings, generación con Amazon Nova Lite o Google Gemini, logging en SQL, interfaz Streamlit. |
-| **Fase 4 — Canal de Voz (Amazon Connect + Lex)**                                | 🔭 Visión futura           | Conectar el backend validado a un canal telefónico real. No iniciada.                                             |
+| Fase                                                                            | Estado           | Detalle                                                                                                                  |
+| ------------------------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------ | -------- |
+| **Fase 1 — Retrieval Directo (Sin LLM)**                                        | ✅ Completada    | Búsqueda vectorial pura para validar los datos y aislar fallos. Costo $0 en generación.                                  |
+| **Fase 2 — RAG Gestionado (Bedrock Managed KB)**                                | ✅ Completada    | RAG completo usando Amazon Titan Embeddings V2 en Chroma y generación con Amazon Nova Lite + Guardrail anti-alucinación. | detalle. |
+| **Fase 3 — RAG Code-First (Vector store en código + proveedor intercambiable)** | ✅ Completada    | ChromaDB + Titan Embeddings, generación con Amazon Nova Lite o Google Gemini, logging en SQL, interfaz Streamlit.        |
+| **Fase 4 — Canal de Voz (Amazon Connect + Lex)**                                | 🔭 Visión futura | Conectar el backend validado a un canal telefónico real. No iniciada.                                                    |
 
 ---
 
@@ -133,7 +133,9 @@ Detalle completo en [`fase1-retrieval-directo/`](./fase1-retrieval-directo/READM
 
 ---
 
-## Fase 2: RAG Gestionado (Bedrock Managed KB) -
+## Fase 2: RAG Gestionado (Bedrock Managed KB) - ✅ Completada
+
+Implementación y validación del pipeline RAG usando Amazon Titan Text Embeddings V2 en ChromaDB y Amazon Nova Lite vía la API Converse de Bedrock, incluyendo un guardrail estricto contra alucinaciones.
 
 Detalle completo, incluyendo el diagnóstico exacto del bloqueo, en [`fase2-rag-gestionado/`](./fase2-rag-gestionado/).
 
