@@ -1,4 +1,4 @@
-# 🚗 AutoSpec Voice Assistant — Asistente de Voz RAG para Consultas Automotrices
+# 🚗 AutoSpec Voice Assistant - Asistente de Voz RAG para Consultas Automotrices
 
 Asistente de Voz Conversacional (IVR Inteligente) que responde consultas técnicas sobre vehículos en tiempo real, a partir de fichas técnicas y manuales cargados en la nube. El proyecto usa una arquitectura **RAG (Retrieval-Augmented Generation)**, construida en fases progresivas para maximizar aprendizaje técnico, resiliencia de infraestructura y preparación para el examen **AWS Certified AI Practitioner**.
 
@@ -24,12 +24,12 @@ El dominio automotriz se eligió por ser un caso de uso realista y frecuente par
 
 ## Mapa de Progreso
 
-| Fase                                                                            | Estado           | Detalle                                                                                                                  |
-| ------------------------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------ | -------- |
-| **Fase 1 — Retrieval Directo (Sin LLM)**                                        | ✅ Completada    | Búsqueda vectorial pura para validar los datos y aislar fallos. Costo $0 en generación.                                  |
-| **Fase 2 — RAG Gestionado (Bedrock Managed KB)**                                | ✅ Completada    | RAG completo usando Amazon Titan Embeddings V2 en Chroma y generación con Amazon Nova Lite + Guardrail anti-alucinación. | detalle. |
-| **Fase 3 — RAG Code-First (Vector store en código + proveedor intercambiable)** | ✅ Completada    | ChromaDB + Titan Embeddings, generación con Amazon Nova Lite o Google Gemini, logging en SQL, interfaz Streamlit.        |
-| **Fase 4 — Canal de Voz (Amazon Connect + Lex)**                                | 🔭 Visión futura | Conectar el backend validado a un canal telefónico real. No iniciada.                                                    |
+| Fase | Estado | Detalle |
+| --- | --- | --- |
+| **Fase 1 — Retrieval Directo (Sin LLM)** | ✅ Completada | Búsqueda vectorial pura para validar los datos y aislar fallos. Costo $0 en generación. |
+| **Fase 2 — RAG Gestionado (Bedrock / Amazon Titan + Nova Lite)** | ✅ Completada | RAG completo usando Amazon Titan Embeddings V2 en Chroma y generación con Amazon Nova Lite + Guardrail anti-alucinación. |
+| **Fase 3 — RAG Code-First (Vector store en código + proveedor intercambiable)** | ✅ Completada | ChromaDB + Titan Embeddings, generación con Amazon Nova Lite o Google Gemini, logging en SQL, interfaz Streamlit. |
+| **Fase 4 — Canal de Voz (Amazon Connect + Lex)** | 🔭 Visión futura | Conectar el backend validado a un canal telefónico real. No iniciada. |                                              |
 
 ---
 
