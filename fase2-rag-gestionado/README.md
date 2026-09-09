@@ -1,4 +1,4 @@
-# Fase 2 — RAG con AWS (Titan Embeddings + Nova Lite)
+# Fase 2 - RAG con AWS (Titan Embeddings + Nova Lite)
 
 ⬅️ [Volver al README principal](../README.md)
 
