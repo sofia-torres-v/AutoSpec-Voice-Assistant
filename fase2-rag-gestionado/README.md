@@ -22,27 +22,27 @@ Ciclo RAG completo usando Amazon Titan Text Embeddings V2 para la búsqueda vect
 
    `python populate_autospec.py`
 
-    Resultado esperado: `Colección lista con 3 documentos`
+   Resultado esperado: `Colección lista con 3 documentos`
 
-    ![Terminal Colección](../docs/screenshots/fase2/fase2_terminal_collection.png)
+   ![Terminal Colección](../docs/screenshots/fase2/fase2_terminal_collection.png)
 
 3. Levantar la interfaz:
 
-    `streamlit run rag_app.py`
+   `streamlit run rag_app.py`
 
 4. Probar con una pregunta real:
 
-    > ¿Cuáles son las especificaciones de seguridad del modelo Alpha?
+   > ¿Cuáles son las especificaciones de seguridad del modelo Alpha?
 
-    ![Respuesta Alpha](../docs/screenshots/fase2/fase2_respuesta_alpha.png)
+   ![Respuesta Alpha](../docs/screenshots/fase2/fase2_respuesta_alpha.png)
 
 5. Probar con una pregunta sin respuesta en los datos (validación anti-alucinación):
 
    > ¿Cuál es la garantía extendida del modelo Alpha?
 
-    Resultado esperado: *"No tengo esa información en las fichas técnicas disponibles."*
+   Resultado esperado: _"No tengo esa información en las fichas técnicas disponibles."_
 
-    ![Guardrail Alucinación](../docs/screenshots/fase2/fase2_guardrail_alucinacion.png)
+   ![Guardrail Alucinación](../docs/screenshots/fase2/fase2_guardrail_alucinacion.png)
 
 ## Guardrail anti-alucinación
 
