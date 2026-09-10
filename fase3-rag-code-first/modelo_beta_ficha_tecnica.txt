@@ -1,0 +1,28 @@
+=== FICHA TÉCNICA Y ESPECIFICACIONES - MODELO BETA ===
+
+[INFORMACIÓN GENERAL]
+Modelo: Beta Plus
+Categoría: Sedán Familiar
+
+[MOTOR Y RENDIMIENTO]
+Tipo de Motor: 1.4L Kappa DOHC 4 Cilindros
+Potencia Máxima: 94 HP a 6,000 RPM
+Torque Máximo: 132 Nm a 4,000 RPM
+Transmisión: Manual de 6 velocidades / Automática de 6 velocidades
+Tipo de Combustible: Gasolina 93 octanos o superior
+Capacidad de Estanque: 43 Litros
+Rendimiento Mixto: 16.2 km/l
+
+[DIMENSIONES Y CAPACIDAD]
+Largo Total: 4,385 mm
+Ancho Total: 1,700 mm
+Alto Total: 1,460 mm
+Distancia entre ejes: 2,570 mm
+Capacidad de Maletero: 475 Litros
+Capacidad de Pasajeros: 5 ocupantes
+
+[EQUIPAMIENTO DE SEGURIDAD Y TECNOLOGÍA]
+Airbags: 6 airbags de serie
+Sistema de Frenos: Discos delanteros y tambor trasero con ABS
+Cámara de Retroceso: Sí, con líneas de guía dinámicas
+Pantalla Infotenimiento: Pantalla táctil de 8 pulgadas con Apple CarPlay y Android Auto inalámbrico

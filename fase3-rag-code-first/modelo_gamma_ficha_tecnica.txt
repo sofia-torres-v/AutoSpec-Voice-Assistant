@@ -1,0 +1,27 @@
+=== FICHA TÉCNICA Y ESPECIFICACIONES - MODELO GAMMA ===
+
+[INFORMACIÓN GENERAL]
+Modelo: Gamma SUV
+Categoría: SUV Mediano
+
+[MOTOR Y RENDIMIENTO]
+Tipo de Motor: 1.6L Gamma MPI 4 Cilindros
+Potencia Máxima: 121 HP a 6,300 RPM
+Torque Máximo: 151 Nm a 4,850 RPM
+Transmisión: Manual de 6 velocidades / Automática IVT
+Tipo de Combustible: Gasolina 95 octanos
+Capacidad de Estanque: 50 Litros
+Rendimiento Mixto: 14.8 km/l
+
+[DIMENSIONES Y CAPACIDAD]
+Largo Total: 4,365 mm
+Ancho Total: 1,800 mm
+Alto Total: 1,620 mm
+Distancia entre ejes: 2,610 mm
+Capacidad de Maletero: 433 Litros
+Capacidad de Pasajeros: 5 ocupantes
+
+[EQUIPAMIENTO DE SEGURIDAD Y ADAS]
+Airbags: 6 airbags
+Asistencias a la Conducción (ADAS): Frenado Autónomo de Emergencia (FCA), Asistente de Mantenimiento de Carril (LKA), Detector de Punto Ciego (BCW)
+Tracción: Delantera 2WD con Control de Tracción Multiterreno

@@ -1,0 +1,29 @@
+=== FICHA TÉCNICA Y ESPECIFICACIONES - MODELO ALPHA ===
+
+[INFORMACIÓN GENERAL]
+Modelo: Alpha Compact
+Categoría: Hatchback Urbano
+
+[MOTOR Y RENDIMIENTO]
+Tipo de Motor: 1.0L MPI 3 Cilindros en línea
+Potencia Máxima: 66 HP a 5,500 RPM
+Torque Máximo: 95 Nm a 3,750 RPM
+Transmisión: Manual de 5 velocidades / Automática de 4 velocidades
+Tipo de Combustible: Gasolina 93 octanos o superior
+Capacidad de Estanque: 35 Litros
+Rendimiento Mixto: 18.5 km/l
+
+[DIMENSIONES Y CAPACIDAD]
+Largo Total: 3,595 mm
+Ancho Total: 1,595 mm
+Alto Total: 1,485 mm
+Distancia entre ejes: 2,400 mm
+Capacidad de Maletero: 255 Litros (ampliable a 1,010 L con asientos abatidos)
+Capacidad de Pasajeros: 5 ocupantes
+
+[EQUIPAMIENTO DE SEGURIDAD]
+Airbags: 6 airbags (frontales, laterales y de cortina)
+Frenos: ABS con EBD
+Control de Estabilidad: ESC (Control Electrónico de Estabilidad)
+Asistente de Salida en Pendiente: HAC incluido
+Anclajes ISOFIX: Sí, en asientos traseros
