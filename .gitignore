@@ -29,4 +29,3 @@ Thumbs.db
 # Logs y archivos temporales
 *.log
 .streamlit/secrets.toml
-.vscode/
