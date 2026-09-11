@@ -28,4 +28,6 @@ Thumbs.db
 
 # Logs y archivos temporales
 *.log
-.streamlit/secrets.toml
+.streamlit/secrets.tomlfase3-rag-code-first/__pycache__/
+fase3-rag-code-first/chroma_langchain/
+fase3-rag-code-first/conversation_logs.db
