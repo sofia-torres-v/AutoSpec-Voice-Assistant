@@ -1,4 +1,4 @@
-# Fase 3 - RAG "Code-First" con LangChain
+# Fase 3: RAG Code-First (LangChain + Gemini + ChromaDB)
 
 ⬅️ [Volver al README principal](../README.md)
 
@@ -6,9 +6,17 @@
 
 Reconstrucción del pipeline RAG completo en código con LangChain, usando Google Gemini tanto para embeddings como para generación, con logging de conversaciones en SQLite.
 
+## Avances Técnicos en esta Fase
+
+1. **Chunking Explícito (`RecursiveCharacterTextSplitter`):** A diferencia de la Fase 2 (donde cada archivo se procesaba completo), aquí se implementó división en fragmentos de `1500` caracteres con `100` de traslape (_overlap_).
+2. **Portabilidad Multi-Cloud:** Demostración de que la lógica RAG se abstrae de AWS. Se integraron `gemini-embedding-001` y `gemini-3.6-flash`. Cambiar de proveedor requiere únicamente cambiar la instancia de las clases de LangChain.
+3. **Persistencia de Conversaciones (SQLite):** Cada consulta, respuesta y marca de tiempo se registran en `conversation_logs.db` para auditoría y observabilidad.
+
 ## Por qué Gemini en vez de Bedrock/Titan
 
-El diseño original contemplaba Titan/Bedrock para los embeddings, igual que en Fase 2. Para esta fase se usó Gemini de punta a punta para demostrar en la práctica el objetivo central: portabilidad multi-cloud. Gracias a que LangChain abstrae tanto los embeddings (`Embeddings`) como los modelos de chat (`BaseChatModel`) detrás de interfaces comunes, este mismo pipeline podría apuntar a Titan/Bedrock cambiando solo 2 líneas en `rag_chain.py`, sin tocar el resto del código.
+El diseño original contemplaba seguir usando Titan/Bedrock para los embeddings, igual que en la Fase 2. Sin embargo, no tenía credenciales de AWS disponibles en el momento de esta implementación así que usé Gemini de punta a punta y lejos de ser una limitación, esto terminó validando en la práctica el objetivo central de la fase: portabilidad multi-cloud real, no solo teórica.
+
+Gracias a que LangChain abstrae tanto los embeddings (`Embeddings`) como los modelos de chat (`BaseChatModel`) detrás de interfaces comunes, este mismo pipeline podría volver a apuntar a Titan/Bedrock cambiando solo la inicialización de los modelos en `ingest.py` (embeddings) y `rag_chain.py` (embeddings + LLM), sin tocar el resto de la lógica de orquestación.
 
 ## Archivos
 
@@ -87,6 +95,6 @@ El mismo prompt de Fase 2 (usar solo el fragmento del modelo mencionado, respond
 |                     | Fase 2                                          | Fase 3                                  |
 | ------------------- | ----------------------------------------------- | --------------------------------------- |
 | Orquestación        | Llamadas manuales (`boto3`, `chromadb` directo) | Cadena declarativa con LangChain (LCEL) |
-| Cambio de proveedor | Reescribir función con `if/else`                | Cambiar 2 líneas de configuración       |
-| Embeddings          | Titan (AWS)                                     | Gemini                                  |
-| Generación          | Nova Lite (AWS)                                 | Gemini                                  |
+| Cambio de proveedor | Reescribir función con `if/else`                | Cambiar la inicialización de los modelos |
+| Embeddings          | Titan Embeddings V2 (AWS)                       | `gemini-embedding-001`                  |
+| Generación          | Nova Lite (AWS)                                 | `gemini-3.6-flash`                      |

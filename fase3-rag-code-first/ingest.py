@@ -5,9 +5,9 @@ from langchain_chroma import Chroma
 from langchain_core.documents import Document
 
 archivos = [
-    "modelo_alpha_ficha_tecnica.txt",
-    "modelo_beta_ficha_tecnica.txt",
-    "modelo_gamma_ficha_tecnica.txt",
+    "data/modelo_alpha_ficha_tecnica.txt",
+    "data/modelo_beta_ficha_tecnica.txt",
+    "data/modelo_gamma_ficha_tecnica.txt",
 ]
 
 documentos = []

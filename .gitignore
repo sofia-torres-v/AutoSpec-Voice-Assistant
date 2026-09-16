@@ -10,7 +10,6 @@ env/
 ENV/
 
 # Bases de datos vectoriales y almacenamiento local (Chroma, SQLite, SQL)
-/data/chroma
 chroma_langchain/
 *.db
 *.sqlite
@@ -28,6 +27,4 @@ Thumbs.db
 
 # Logs y archivos temporales
 *.log
-.streamlit/secrets.tomlfase3-rag-code-first/__pycache__/
-fase3-rag-code-first/chroma_langchain/
-fase3-rag-code-first/conversation_logs.db
+.streamlit/secrets.toml
