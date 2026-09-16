@@ -13,8 +13,8 @@ Asistente de Voz Conversacional (IVR Inteligente) que responde consultas técnic
 Este proyecto nace de la curiosidad de entender qué ocurre **dentro** de un pipeline RAG, en vez de usarlo como una caja negra. Por eso está diseñado como una evolución deliberada:
 
 1. **Aislar la recuperación pura** (Fase 1), usando Bedrock Knowledge Bases gestionado, para validar que los cimientos (ingesta, chunking, embeddings, búsqueda vectorial) funcionan correctamente antes de sumar generación de texto.
-2. **Construir el ciclo RAG completo a mano** (Fase 2), con Titan Embeddings y Amazon Nova Lite orquestados directamente en código (boto3 + ChromaDB), para ver y controlar cada paso del proceso, en vez de depender de la abstracción automática de una Knowledge Base gestionada.
-3. **Reconstruir esa misma orquestación con un framework profesional** (Fase 3), usando LangChain y Google Gemini, para demostrar que la arquitectura es portátil entre proveedores (no depende de AWS) y que un framework estándar simplifica el intercambio de proveedor a solo cambiar la inicialización de los modelos, sin reescribir el resto del código.
+2. **Construir el ciclo RAG completo a mano** (Fase 2), con Titan Embeddings, ChromaDB y Amazon Nova Lite orquestados directamente en código, para ver y controlar cada paso del proceso, en vez de depender de la abstracción automática de una Knowledge Base gestionada.
+3. **Reconstruir esa misma orquestación con un framework profesional** (Fase 3), usando LangChain, ChromaDB y Google Gemini, para demostrar que la arquitectura es portátil entre proveedores (no depende de AWS) y que un framework estándar simplifica el intercambio de proveedor a solo cambiar la inicialización de los modelos, sin reescribir el resto del código.
 
 El dominio automotriz se eligió por ser un caso de uso realista y frecuente para asistentes de voz conversacionales (IVR) en industria.
 
@@ -24,9 +24,9 @@ El dominio automotriz se eligió por ser un caso de uso realista y frecuente par
 
 | Fase | Estado | Stack | Enfoque Principal |
 |---|---|---|---|
-| **Fase 1 - Retrieval Directo** | ✅ Completada | Bedrock KB + S3 + Lambda | Búsqueda vectorial pura sin LLM para aislar fallos. |
-| **Fase 2 - RAG con AWS a Mano** | ✅ Completada | Titan Embeddings V2 + ChromaDB + Nova Lite con guardrail anti-alucinación. |
-| **Fase 3 - RAG Code-First** | ✅ Completada | LangChain + Gemini + SQLite + ChromaDB | Chunking explícito, portabilidad multi-cloud y persistencia. |
+| **Fase 1 - Retrieval Directo** | ✅ Completada | Bedrock Knowledge Base + S3 | Búsqueda vectorial pura sin LLM para aislar fallos. |
+| **Fase 2 - RAG con AWS a Mano** | ✅ Completada | Titan Embeddings V2 + ChromaDB + Nova Lite | Construcción manual del pipeline RAG y guardrails anti-alucinación.
+| **Fase 3 - RAG Code-First** | ✅ Completada | LangChain + ChromaDB + Gemini + SQLite | Chunking explícito, portabilidad multi-cloud y persistencia. |
 | **Fase 4 - Canal de Voz** | 🔭 Visión futura | Amazon Connect + Lex | Conexión del backend validado a telefonía real (IVR). |
 ---
 
@@ -118,7 +118,7 @@ autospec-voice-assistant-rag/
 
 ---
 
-## Fase 1: Retrieval Directo (Sin LLM) — ✅ Completada
+## Fase 1: Retrieval Directo (Bedrock Knowledge Base + S3) - ✅ Completada
 
 Búsqueda vectorial pura sobre la Knowledge Base gestionada de Bedrock. **Resultado:** `200 OK`, 3 fragmentos recuperados, mejor score `0.59`, costo `$0.00`.
 
@@ -126,7 +126,7 @@ Detalle completo en [`fase1-retrieval-directo/`](./fase1-retrieval-directo/READM
 
 ---
 
-## Fase 2: RAG con AWS a Mano (Titan + ChromaDB + Nova Lite) — ✅ Completada
+## Fase 2: RAG con AWS a Mano (Titan Embeddings + ChromaDB + Nova Lite) - ✅ Completada
 
 Ciclo RAG completo orquestado directamente en código: ChromaDB como vector store, Amazon Titan Embeddings V2, y Amazon Nova Lite generando la respuesta, con guardrail anti-alucinación validado.
 
@@ -134,7 +134,7 @@ Detalle completo en [`fase2-rag-manual/`](./fase2-rag-manual/README.md).
 
 ---
 
-## Fase 3: RAG Code-First (LangChain + ChromaDB + Gemini + ) — ✅ Completada
+## Fase 3: RAG Code-First (LangChain + ChromaDB + Gemini) - ✅ Completada
 
 El mismo patrón RAG, reconstruido con LangChain para demostrar portabilidad entre proveedores: embeddings y generación con Google Gemini, logging de conversaciones en SQLite.
 
