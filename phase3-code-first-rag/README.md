@@ -1,4 +1,4 @@
-# Fase 3: RAG Code-First (LangChain + Gemini + ChromaDB)
+# Fase 3: Code-First RAG (LangChain + ChromaDB + Gemini)
 
 ⬅️ [Volver al README principal](../README.md)
 
@@ -72,19 +72,19 @@ Resultado esperado: `Colección lista con N fragmentos`
 
 **1. Ingesta completada:**
 
-![Terminal Colección](../docs/screenshots/fase3/fase3_terminal_collection.png)
+![Terminal Colección](../docs/screenshots/phase3/phase3_terminal_collection.png)
 
 **2. Pregunta real (modelo Alpha):**
 
-![Respuesta Alpha](../docs/screenshots/fase3/fase3_respuesta_alpha.png)
+![Respuesta Alpha](../docs/screenshots/phase3/phase3_respuesta_alpha.png)
 
 **3. Pregunta sin respuesta en los datos (guardrail anti-alucinación):**
 
-![Guardrail Alucinación](../docs/screenshots/fase3/fase3_guardrail_alucinacion.png)
+![Guardrail Alucinación](../docs/screenshots/phase3/phase3_guardrail_alucinacion.png)
 
 **4. Verificación del logging en SQLite:**
 
-![Logs de SQLite](../docs/screenshots/fase3/fase3_respuesta_sqlite.png)
+![Logs de SQLite](../docs/screenshots/phase3/phase3_respuesta_sqlite.png)
 
 ## Guardrail anti-alucinación
 

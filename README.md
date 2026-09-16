@@ -2,9 +2,9 @@
 
 Asistente de Voz Conversacional (IVR Inteligente) que responde consultas técnicas sobre vehículos en tiempo real, a partir de fichas técnicas y manuales cargados en la nube. El proyecto usa una arquitectura **RAG (Retrieval-Augmented Generation)**, construida en fases progresivas para maximizar aprendizaje técnico, resiliencia de infraestructura y preparación para el examen **AWS Certified AI Practitioner**.
 
-| Respuesta exitosa de la Lambda | Knowledge Base disponible |
-|---|---|
-| ![Respuesta Lambda 200 OK](./docs/screenshots/fase1/lambda_response_200.png) | ![Knowledge Base overview](./docs/screenshots/fase1/kb_overview.png) |
+| Respuesta exitosa de la Lambda                                               | Knowledge Base disponible                                            |
+| ---------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| ![Respuesta Lambda 200 OK](./docs/screenshots/phase1/lambda_response_200.png) | ![Knowledge Base overview](./docs/screenshots/phase1/kb_overview.png) |
 
 ---
 
@@ -13,7 +13,7 @@ Asistente de Voz Conversacional (IVR Inteligente) que responde consultas técnic
 Este proyecto nace de la curiosidad de entender qué ocurre **dentro** de un pipeline RAG, en vez de usarlo como una caja negra. Por eso está diseñado como una evolución deliberada:
 
 1. **Aislar la recuperación pura** (Fase 1), usando Bedrock Knowledge Bases gestionado, para validar que los cimientos (ingesta, chunking, embeddings, búsqueda vectorial) funcionan correctamente antes de sumar generación de texto.
-2. **Construir el ciclo RAG completo a mano** (Fase 2), con Titan Embeddings, ChromaDB y Amazon Nova Lite orquestados directamente en código, para ver y controlar cada paso del proceso, en vez de depender de la abstracción automática de una Knowledge Base gestionada.
+2. **Construir el ciclo RAG por componentes** (Fase 2), con Titan Embeddings, ChromaDB y Amazon Nova Lite orquestados directamente en código, para ver y controlar cada paso del proceso, en vez de depender de la abstracción automática de una Knowledge Base gestionada.
 3. **Reconstruir esa misma orquestación con un framework profesional** (Fase 3), usando LangChain, ChromaDB y Google Gemini, para demostrar que la arquitectura es portátil entre proveedores (no depende de AWS) y que un framework estándar simplifica el intercambio de proveedor a solo cambiar la inicialización de los modelos, sin reescribir el resto del código.
 
 El dominio automotriz se eligió por ser un caso de uso realista y frecuente para asistentes de voz conversacionales (IVR) en industria.
@@ -22,12 +22,13 @@ El dominio automotriz se eligió por ser un caso de uso realista y frecuente par
 
 ## Mapa de Progreso
 
-| Fase | Estado | Stack | Enfoque Principal |
-|---|---|---|---|
-| **Fase 1 - Retrieval Directo** | ✅ Completada | Bedrock Knowledge Base + S3 | Búsqueda vectorial pura sin LLM para aislar fallos. |
-| **Fase 2 - RAG con AWS a Mano** | ✅ Completada | Titan Embeddings V2 + ChromaDB + Nova Lite | Construcción manual del pipeline RAG y guardrails anti-alucinación.
-| **Fase 3 - RAG Code-First** | ✅ Completada | LangChain + ChromaDB + Gemini + SQLite | Chunking explícito, portabilidad multi-cloud y persistencia. |
-| **Fase 4 - Canal de Voz** | 🔭 Visión futura | Amazon Connect + Lex | Conexión del backend validado a telefonía real (IVR). |
+| Fase                            | Estado           | Stack                                      | Enfoque Principal                                                   |
+| ------------------------------- | ---------------- | ------------------------------------------ | ------------------------------------------------------------------- |
+| **Fase 1 - Direct Retrieval**  | ✅ Completada    | Bedrock Knowledge Base + S3                | Búsqueda vectorial pura sin LLM para aislar fallos.                 |
+| **Fase 2 - Component-Based RAG** | ✅ Completada    | Titan Embeddings V2 + ChromaDB + Nova Lite | Construcción manual del pipeline RAG y guardrails anti-alucinación. |
+| **Fase 3 - RAG Code-First**     | ✅ Completada    | LangChain + ChromaDB + Gemini + SQLite     | Chunking explícito, portabilidad multi-cloud y persistencia.        |
+| **Fase 4 - Canal de Voz**       | 🔭 Visión futura | Amazon Connect + Lex                       | Conexión del backend validado a telefonía real (IVR).               |
+
 ---
 
 ## Arquitectura
@@ -56,7 +57,7 @@ flowchart TD
 
 > **Nota conceptual:** en Fase 1, esto lo hace la Knowledge Base de Bedrock de forma automática. En Fases 2 y 3, este mismo flujo se controla explícitamente en código.
 
-### Visión futura del producto 
+### Visión futura del producto
 
 ```mermaid
 flowchart LR
@@ -72,19 +73,19 @@ flowchart LR
 
 ## Stack Tecnológico
 
-| Componente | Servicio | Fase |
-|---|---|---|
-| Almacenamiento de documentos | Amazon S3 | Fase 1 |
-| Orquestador de conocimiento gestionado | Amazon Bedrock Knowledge Bases | Fase 1 |
-| Cómputo / lógica | AWS Lambda (Python, boto3) | Fase 1 |
-| Vector store en código | ChromaDB | Fases 2 y 3 |
-| Embeddings | Amazon Titan Text Embeddings V2 | Fase 2 |
-| Generación | Amazon Nova Lite (Converse API) | Fase 2 |
-| Framework de orquestación | LangChain (LCEL) | Fase 3 |
-| Embeddings + Generación | Google Gemini (`gemini-embedding-001`, `gemini-3.6-flash`) | Fase 3 |
-| Registro de conversaciones | SQLite | Fase 3 |
-| Interfaz de prueba | Streamlit | Fases 2 y 3 |
-| Voz (visión futura) | Amazon Lex + Amazon Connect | Fase 4 |
+| Componente                             | Servicio                                                   | Fase        |
+| -------------------------------------- | ---------------------------------------------------------- | ----------- |
+| Almacenamiento de documentos           | Amazon S3                                                  | Fase 1      |
+| Orquestador de conocimiento gestionado | Amazon Bedrock Knowledge Bases                             | Fase 1      |
+| Cómputo / lógica                       | AWS Lambda (Python, boto3)                                 | Fase 1      |
+| Vector store en código                 | ChromaDB                                                   | Fases 2 y 3 |
+| Embeddings                             | Amazon Titan Text Embeddings V2                            | Fase 2      |
+| Generación                             | Amazon Nova Lite (Converse API)                            | Fase 2      |
+| Framework de orquestación              | LangChain (LCEL)                                           | Fase 3      |
+| Embeddings + Generación                | Google Gemini (`gemini-embedding-001`, `gemini-3.6-flash`) | Fase 3      |
+| Registro de conversaciones             | SQLite                                                     | Fase 3      |
+| Interfaz de prueba                     | Streamlit                                                  | Fases 2 y 3 |
+| Voz (visión futura)                    | Amazon Lex + Amazon Connect                                | Fase 4      |
 
 ---
 
@@ -96,20 +97,20 @@ autospec-voice-assistant-rag/
 ├── .gitignore
 ├── docs/
 │   └── screenshots/
-│       ├── fase1/
-│       ├── fase2/
-│       ├── fase3/
-│       └── fase4/
-├── fase1-retrieval-directo/
+│       ├── phase1/
+│       ├── phase2/
+│       ├── phase3/
+│       └── phase4/
+├── phase1-direct-retrieval/
 │   ├── lambda_function.py
 │   ├── test_event.json
 │   └── README.md
-├── fase2-rag-manual/
+├── phase2-component-based-rag/
 │   ├── populate_autospec.py
 │   ├── rag_lib.py
 │   ├── rag_app.py
 │   └── README.md
-└── fase3-rag-code-first/
+└── phase3-code-first-rag/
     ├── ingest.py
     ├── rag_chain.py
     ├── app.py
@@ -118,27 +119,27 @@ autospec-voice-assistant-rag/
 
 ---
 
-## Fase 1: Retrieval Directo (Bedrock Knowledge Base + S3) - ✅ Completada
+## Fase 1: Direct Retrieval (Bedrock Knowledge Base) - ✅ Completada
 
 Búsqueda vectorial pura sobre la Knowledge Base gestionada de Bedrock. **Resultado:** `200 OK`, 3 fragmentos recuperados, mejor score `0.59`, costo `$0.00`.
 
-Detalle completo en [`fase1-retrieval-directo/`](./fase1-retrieval-directo/README.md).
+Detalle completo en [`phase1-direct-retrieval/`](./phase1-direct-retrieval/README.md).
 
 ---
 
-## Fase 2: RAG con AWS a Mano (Titan Embeddings + ChromaDB + Nova Lite) - ✅ Completada
+## Fase 2: Component-Based RAG (Titan Embeddings + ChromaDB + Nova Lite) - ✅ Completada
 
 Ciclo RAG completo orquestado directamente en código: ChromaDB como vector store, Amazon Titan Embeddings V2, y Amazon Nova Lite generando la respuesta, con guardrail anti-alucinación validado.
 
-Detalle completo en [`fase2-rag-manual/`](./fase2-rag-manual/README.md).
+Detalle completo en [`phase2-component-based-rag/`](./phase2-component-based-rag/README.md).
 
 ---
 
-## Fase 3: RAG Code-First (LangChain + ChromaDB + Gemini) - ✅ Completada
+## Fase 3: Code-First RAG (LangChain + ChromaDB + Gemini) - ✅ Completada
 
 El mismo patrón RAG, reconstruido con LangChain para demostrar portabilidad entre proveedores: embeddings y generación con Google Gemini, logging de conversaciones en SQLite.
 
-Detalle completo en [`fase3-rag-code-first/`](./fase3-rag-code-first/README.md).
+Detalle completo en [`phase3-code-first-rag/`](./phase3-code-first-rag/README.md).
 
 ---
 

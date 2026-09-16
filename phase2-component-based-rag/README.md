@@ -1,4 +1,4 @@
-## Fase 2: RAG con AWS a Mano (Titan + ChromaDB + Nova Lite)
+## Fase 2: Component-Based RAG (Titan Embeddings + ChromaDB + Nova Lite)
 
 ⬅️ [Volver al README principal](../README.md)
 
@@ -14,7 +14,7 @@ Esta fase se construyó manualmente para sortear tres restricciones reales encon
 2. **`RetrieveAndGenerate` no soportado:** Las Managed Knowledge Bases en cuentas con créditos limitaban las operaciones a `retrieve` puro. La generación tuvo que orquestarse manualmente invocando `converse()`.
 3. **Throttling por cuota diaria de tokens:** Bloqueos por `ThrottlingException` en la API de Converse obligaron a desacoplar la base vectorial a un almacenamiento local accesible y sin límites de consulta (`ChromaDB`).
 
-   ![Error de cuota de tokens](../docs/screenshots/fase2/fase2_throttling_error.png)
+   ![Error de cuota de tokens](../docs/screenshots/phase2/phase2_throttling_error.png)
 
 ## Archivos
 
@@ -58,15 +58,15 @@ Resultado esperado: `Colección lista con 3 documentos`
 
 **1. Ingesta completada:**
 
-![Terminal Colección](../docs/screenshots/fase2/fase2_terminal_collection.png)
+![Terminal Colección](../docs/screenshots/phase2/phase2_terminal_collection.png)
 
 **2. Pregunta real (modelo Alpha):**
 
-![Consulta Exitosa (Modelo Alpha)](../docs/screenshots/fase2/fase2_respuesta_alpha.png)
+![Consulta Exitosa (Modelo Alpha)](../docs/screenshots/phase2/phase2_response_alpha.png)
 
 **3. Pregunta sin respuesta en los datos (guardrail anti-alucinación):**
 
-![Guardrail Alucinación](../docs/screenshots/fase2/fase2_guardrail_alucinacion.png)
+![Guardrail Alucinación](../docs/screenshots/phase2/phase2_guardrail_alucinacion.png)
 
 ## Guardrail anti-alucinación
 
