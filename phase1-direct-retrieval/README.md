@@ -1,4 +1,4 @@
-# Fase 1 - Retrieval Directo (Bedrock Knowledge Base + S3)
+# Fase 1: Direct Retrieval (Bedrock Knowledge Base)
 
 ⬅️ [Volver al README principal](../README.md)
 
@@ -54,18 +54,18 @@ Búsqueda vectorial pura sobre la Knowledge Base de Bedrock, sin invocar ningún
 
 **Respuesta de la Lambda (200 OK, 3 fragmentos y el score de relevancia de la búsqueda vectorial (0.59)):**
 
-![Respuesta Lambda 200 OK](../docs/screenshots/fase1/lambda_response_200.png)
+![Respuesta Lambda 200 OK](../docs/screenshots/phase1/lambda_response_200.png)
 
 **Logs de CloudWatch (traza de ejecución):**
 
-![Logs de CloudWatch](../docs/screenshots/fase1/cloudwatch_logs.png)
+![Logs de CloudWatch](../docs/screenshots/phase1/cloudwatch_logs.png)
 
 **Knowledge Base disponible (overview):**
 
-![Knowledge Base overview](../docs/screenshots/fase1/kb_overview.png)
+![Knowledge Base overview](../docs/screenshots/phase1/kb_overview.png)
 
 **Objetos cargados en el bucket S3:**
 
-![Objetos en S3](../docs/screenshots/fase1/kb_overview_s3.png)
+![Objetos en S3](../docs/screenshots/phase1/kb_overview_s3.png)
 
 ---
