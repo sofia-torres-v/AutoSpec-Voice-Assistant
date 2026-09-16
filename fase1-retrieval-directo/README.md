@@ -1,8 +1,10 @@
 # Fase 1 - Retrieval Directo (Sin LLM)
 
-Búsqueda vectorial pura sobre la Knowledge Base de Bedrock, sin invocar ningún modelo generativo. El objetivo es validar que la ingesta (S3 → chunking → embeddings → Vector Store) funciona correctamente antes de sumar un LLM encima.
-
 ⬅️ [Volver al README principal](../README.md)
+
+## Estado: ✅ Completada
+
+Búsqueda vectorial pura sobre la Knowledge Base de Bedrock, sin invocar ningún modelo generativo. El objetivo es validar que la ingesta (S3 → chunking → embeddings → Vector Store) funciona correctamente antes de sumar un LLM encima.
 
 ## Archivos
 
@@ -50,7 +52,7 @@ Búsqueda vectorial pura sobre la Knowledge Base de Bedrock, sin invocar ningún
 
 ## 📸 Evidencia completa
 
-**Respuesta de la Lambda (200 OK, 3 fragmentos):**
+**Respuesta de la Lambda (200 OK, 3 fragmentos y el score de relevancia de la búsqueda vectorial (0.59)):**
 
 ![Respuesta Lambda 200 OK](../docs/screenshots/fase1/lambda_response_200.png)
 
@@ -67,5 +69,3 @@ Búsqueda vectorial pura sobre la Knowledge Base de Bedrock, sin invocar ningún
 ![Objetos en S3](../docs/screenshots/fase1/kb_overview_s3.png)
 
 ---
-
-Ver el detalle completo de arquitectura, conceptos y explicación línea por línea del código en el documento de estudio del proyecto.

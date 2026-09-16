@@ -1,10 +1,20 @@
-# Fase 2 - RAG con AWS (Titan Embeddings + Nova Lite)
+## Fase 2: RAG con AWS a Mano (Titan + ChromaDB + Nova Lite)
 
 ⬅️ [Volver al README principal](../README.md)
 
 ## Estado: ✅ Completada
 
 Ciclo RAG completo usando Amazon Titan Text Embeddings V2 para la búsqueda vectorial y Amazon Nova Lite para la generación de la respuesta final, con un guardrail anti-alucinación validado.
+
+## Contexto y Obstáculos Superados en AWS
+
+Esta fase se construyó manualmente para sortear tres restricciones reales encontradas en AWS:
+
+1. **Permiso `s3:CreateBucket` bloqueado:** En entornos de prueba (AWS Skill Builder) no era posible crear buckets automáticos para nuevas Knowledge Bases.
+2. **`RetrieveAndGenerate` no soportado:** Las Managed Knowledge Bases en cuentas con créditos limitaban las operaciones a `retrieve` puro. La generación tuvo que orquestarse manualmente invocando `converse()`.
+3. **Throttling por cuota diaria de tokens:** Bloqueos por `ThrottlingException` en la API de Converse obligaron a desacoplar la base vectorial a un almacenamiento local accesible y sin límites de consulta (`ChromaDB`).
+
+   ![Error de cuota de tokens](../docs/screenshots/fase2/fase2_throttling_error.png)
 
 ## Archivos
 
@@ -52,7 +62,7 @@ Resultado esperado: `Colección lista con 3 documentos`
 
 **2. Pregunta real (modelo Alpha):**
 
-![Respuesta Alpha](../docs/screenshots/fase2/fase2_respuesta_alpha.png)
+![Consulta Exitosa (Modelo Alpha)](../docs/screenshots/fase2/fase2_respuesta_alpha.png)
 
 **3. Pregunta sin respuesta en los datos (guardrail anti-alucinación):**
 
