@@ -134,7 +134,7 @@ Detalle completo en [`fase2-rag-manual/`](./fase2-rag-manual/README.md).
 
 ---
 
-## Fase 3: RAG Code-First (LangChain + Gemini + ChromaDB) — ✅ Completada
+## Fase 3: RAG Code-First (LangChain + ChromaDB + Gemini + ) — ✅ Completada
 
 El mismo patrón RAG, reconstruido con LangChain para demostrar portabilidad entre proveedores: embeddings y generación con Google Gemini, logging de conversaciones en SQLite.
 
