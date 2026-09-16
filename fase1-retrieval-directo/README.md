@@ -1,4 +1,4 @@
-# Fase 1 - Retrieval Directo (Sin LLM)
+# Fase 1 - Retrieval Directo (Bedrock Knowledge Base + S3)
 
 ⬅️ [Volver al README principal](../README.md)
 
@@ -50,7 +50,7 @@ Búsqueda vectorial pura sobre la Knowledge Base de Bedrock, sin invocar ningún
 }
 ```
 
-## 📸 Evidencia completa
+## Evidencia
 
 **Respuesta de la Lambda (200 OK, 3 fragmentos y el score de relevancia de la búsqueda vectorial (0.59)):**
 
